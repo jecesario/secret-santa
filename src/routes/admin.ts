@@ -11,6 +11,7 @@ router.get('/ping', AuthController.validate, (req, res) => {
 router.post('/login', AuthController.login);
 
 router.get('/events', AuthController.validate, EventController.getAll);
-router.get('/events/:id', AuthController.validate, EventController.getEvent);
+router.get('/events/:id', AuthController.validate, EventController.getById);
+router.post('/events', AuthController.validate, EventController.add);
 
 export default router;

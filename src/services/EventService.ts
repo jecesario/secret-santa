@@ -1,12 +1,17 @@
-import {PrismaClient} from "@prisma/client";
+import {PrismaClient, Prisma} from "@prisma/client";
 
 const prisma = new PrismaClient();
 export const getAll = async () => {
     return prisma.event.findMany();
 }
 
-export const getEvent = async (id: number) => {
+export const getById = async (id: number) => {
     return prisma.event.findFirst({
         where: {id}
     });
+}
+
+type EventCreateData = Prisma.Args<typeof prisma.event, 'create'>['data'];
+export const add = async (data: EventCreateData) => {
+    return prisma.event.create({data});
 }
