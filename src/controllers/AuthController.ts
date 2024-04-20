@@ -15,3 +15,13 @@ export const login: RequestHandler = (req, res) => {
 
     return res.json({token: AuthService.createToken()});
 }
+
+export const validate: RequestHandler = (req, res, next) => {
+
+    if(!req.headers.authorization) return res.status(403).json({error: 'Acesso negaddo'});
+
+    const token = req.headers.authorization.split( ' ')[1];
+    if(!AuthService.validateToken(token)) return res.status(403).json({error: 'Acesso negaddo'});
+
+    next();
+}

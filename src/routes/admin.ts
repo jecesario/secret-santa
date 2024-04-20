@@ -3,8 +3,8 @@ import * as AuthController from '../controllers/AuthController'
 
 const router = Router();
 
-router.get('/ping', (req, res) => {
-    res.json({pong: true});
+router.get('/ping', AuthController.validate, (req, res) => {
+    res.json({pong: true, admin: true});
 });
 
 router.post('/login', AuthController.login)
