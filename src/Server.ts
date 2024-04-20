@@ -3,8 +3,8 @@ import express from 'express';
 import cors from 'cors';
 import https from 'https';
 import http from 'http';
-import adminRoutes from './routes/admin';
-import siteRoutes from './routes/site';
+import adminRoutes from './routes/AdminRouter';
+import siteRoutes from './routes/SiteRouter';
 import {requestInterceptor} from "./utils/requestInterceptor";
 
 const app = express();
