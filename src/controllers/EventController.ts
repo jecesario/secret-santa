@@ -58,3 +58,12 @@ export const edit: RequestHandler = async (req, res) => {
 
     res.json({event: editedEvent});
 }
+
+export const remove: RequestHandler = async (req, res) => {
+    const {id} = req.params;
+
+    const deleteEvent = await EventService.remove(parseInt(id));
+    if (!deleteEvent) return res.status(400).json({error: 'Ocorreu um erro ao tentar remover o evento do banco!'});
+
+    return res.status(204).end();
+}

@@ -24,3 +24,9 @@ export const edit = async (id: number, data: EventEditData) => {
         data
     });
 }
+
+export const remove = async (id: number) => {
+    return await prisma.event.delete({
+        where: {id}
+    });
+}
