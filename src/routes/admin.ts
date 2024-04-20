@@ -13,5 +13,6 @@ router.post('/login', AuthController.login);
 router.get('/events', AuthController.validate, EventController.getAll);
 router.get('/events/:id', AuthController.validate, EventController.getById);
 router.post('/events', AuthController.validate, EventController.add);
+router.put('/events/:id', AuthController.validate, EventController.edit);
 
 export default router;

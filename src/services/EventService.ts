@@ -15,3 +15,12 @@ type EventCreateData = Prisma.Args<typeof prisma.event, 'create'>['data'];
 export const add = async (data: EventCreateData) => {
     return prisma.event.create({data});
 }
+
+type EventEditData = Prisma.Args<typeof prisma.event, 'update'>['data'];
+
+export const edit = async (id: number, data: EventEditData) => {
+    return prisma.event.update({
+        where: {id},
+        data
+    });
+}
