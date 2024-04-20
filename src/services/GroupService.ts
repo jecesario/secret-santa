@@ -6,3 +6,10 @@ export const getAll = async (event_id: number) => {
         where: {event_id}
     });
 }
+
+type GetByIdFilters = {id: number, event_id?: number}
+export const getById = async (filters: GetByIdFilters) => {
+    return prisma.eventGroup.findFirst({
+        where: filters
+    })
+}

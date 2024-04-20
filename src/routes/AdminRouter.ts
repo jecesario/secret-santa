@@ -17,6 +17,7 @@ router.post('/events', AuthController.validate, EventController.add);
 router.put('/events/:id', AuthController.validate, EventController.edit);
 router.delete('/events/:id', AuthController.validate, EventController.remove);
 
-router.get('/events/:event_id/groups', AuthController.validate, GroupController.getAll)
+router.get('/events/:event_id/groups', AuthController.validate, GroupController.getAll);
+router.get('/evetns/:event_id/groups/id', AuthController.validate, GroupController.getById);
 
 export default router;
